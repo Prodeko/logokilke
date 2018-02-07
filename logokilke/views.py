@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.decorators import method_decorator
 from django.template import RequestContext
+from django.core.exceptions import ValidationError
 
 from logokilke.models import *
 from logokilke.forms import *
@@ -74,6 +75,13 @@ def upload_pic(request):
 
     active = 'single'
     form = ImageUploadForm(request.POST, request.FILES)
+
+    # Size limit check
+    limit = 3 * 1024 * 1024 # 3MB maximum size
+    file_size = request.FILES['image_field'].size
+    if file_size > limit:
+        return HttpResponseForbidden('Image too large with size of ' + str(round(file_size/1024/1024, 1)) + 'MB. Size should not exceed '+ str(int(limit/1024/1024)) +'MB.')
+
 
     if form.is_valid():
         """ Do the image stuff """
