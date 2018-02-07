@@ -1,0 +1,78 @@
+/* === GENERAL === */
+
+html, body { height: 100%; }
+
+body {
+    font-family: sans-serif;
+    /*--teksti-color: #1E3553;
+    --sininen: #1E3553;*/
+    padding-top: 50px;
+    color:#1E3553;
+}
+
+.bg {
+    background-color: #ededed;
+    background-image: url('/static/images/fb_profile.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+}
+
+.layer {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+
+div.form {
+  padding: 25px;
+}
+
+img.output {
+    width:100%;
+    max-width:300px;
+}
+
+/* === NAVBAR === */
+.navbar {
+  font-size: 14px !important;
+  color: white;
+	border: none;
+	margin-bottom: 0px;
+	border-radius: 0px;
+  z-index: 10;
+  background: #1E3553;
+}
+
+.navbar-brand>img {
+  height: 100%;
+}
+
+.navbar-brand {
+  padding: 10px 10px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: 0px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav>li>a:visited {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav>li>a:focus {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #dddddd;
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<center>
+  <section class="bg">
+    <div class="layer">
+      <h3>Tallenna kuva, ja laita Prodekon logo näkyviin!</h3>
+      <div class="container">
+        {% if b64_images %}
+        <div class="row">
+          <div class="column">
+            {% for img in b64_images %}
+            <img src="{{ img }}" class="col-md-2 output">
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      </div>
+    </div>
+  </section>
+</center>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<section id="index" class="bg">
+  <div class="layer">
+    <div class="container">
+      <center>
+        <h1>Lisää Prodeko-logo kuvaasi!</h1>
+      </center>
+      <div class="form">
+        <form enctype="multipart/form-data" method="POST" action="{% url 'upload_pic' %}">
+          {% csrf_token %}
+          {{ form }}
+          <br>
+          <input class='btn btn-primary' type="submit" value="Lisää logot" />
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

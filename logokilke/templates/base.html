@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Logokilke</title>
+
+    <!-- Icon -->
+    <link rel="icon" href="{% static 'icons/icon.png' %}">
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<!-- Font awesome -->
+		<link href="{% static 'plugins/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo_text_white.png' %}"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="{% if 'index' in page_var %}active{% endif %}"><a href="{% url 'index' %}">Etusivu</a></li>
+            <li class="{% if 'single' in page_var %}active{% endif %}"><a href="{% url 'single' %}">Yksi kuva</a></li>
+            <li class="{% if 'multi' in page_var %}active{% endif %}"><a href="{% url 'multi' %}">Monta kuvaa</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+		{% block body %}
+
+		{% endblock %}
+    <!-- jQuery and Bootstrap 4 JS. -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
