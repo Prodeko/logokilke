@@ -5,13 +5,13 @@
 <center>
   <section class="bg">
     <div class="layer">
-      <h3>Tallenna kuva, ja laita Prodekon logo näkyviin!</h3>
+      <h3><b>Tallenna kuva, ja laita Prodekon logo näkyviin!</b></h3>
       <div class="container">
         {% if b64_images %}
         <div class="row">
           <div class="column">
             {% for img in b64_images %}
-            <img src="{{ img }}" class="col-md-3">
+            <img src="{{ img }}" class="col-md-6 output">
             {% endfor %}
           </div>
         </div>
