@@ -33,6 +33,14 @@ body {
     overflow: auto;
 }
 
+div.imgbox {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
 div.form {
   padding: 25px;
 }

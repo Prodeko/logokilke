@@ -77,7 +77,7 @@ def upload_pic(request):
     form = ImageUploadForm(request.POST, request.FILES)
 
     # Size limit check
-    limit = 3 * 1024 * 1024 # 3MB maximum size
+    limit = 8 * 1024 * 1024 # 8MB maximum size
     file_size = request.FILES['image_field'].size
     if file_size > limit:
         return HttpResponseForbidden('Image too large with size of ' + str(round(file_size/1024/1024, 1)) + 'MB. Size should not exceed '+ str(int(limit/1024/1024)) +'MB.')

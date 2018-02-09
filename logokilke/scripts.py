@@ -3,13 +3,9 @@ import os, sys
 import uuid
 from io import StringIO, BytesIO
 import base64
+from PIL import ExifTags
+from logokilke.paths import logo_dir, save_dir, logo_list
 
-logo_dir = '/vagrant/logokilke/logos/'
-save_dir = '/vagrant/logokilke/temp/'
-logo_list =  ['logo_blue.png',
-              'logo_text_blue.png',
-              'logo_text_white.png',
-              'logo_white.png']
 # 'fb_profile.jpg' logo is excluded, good or bad?
 
 """
@@ -22,6 +18,23 @@ def add_logo(input_img, input_logo, location):
         input_img.convert("RGBA")
     if not input_logo.mode == "RGBA":
         input_logo.convert("RGBA")
+
+    # Flip image if EXIF tags specify direction
+    try:
+        for orientation in ExifTags.TAGS.keys():
+            if ExifTags.TAGS[orientation]=='Orientation':
+                break
+        exif=dict(input_img._getexif().items())
+
+        if exif[orientation] == 3:
+            input_img = input_img.rotate(180, expand=True)
+        elif exif[orientation] == 6:
+            input_img = input_img.rotate(270, expand=True)
+        elif exif[orientation] == 8:
+            input_img = input_img.rotate(90, expand=True)
+    except (AttributeError, KeyError, IndexError):
+        # cases: image don't have getexif
+        pass
 
     # Set up output image variable
     output_img = input_img.copy()
